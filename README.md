@@ -79,3 +79,18 @@ query:
 
 output:  
 ![output4](https://github.com/ajiepamungkasep/Sales-Performance-Report-with-MySQL/blob/main/4.JPG)
+
+### V. Customers Transactions per Year
+DQLab Store ingin mengetahui jumlah customer (number_of_customer) yang bertransaksi setiap tahun dari 2009 sampai 2012 (years).  
+query:  
+  
+    SELECT
+	    LEFT(order_date,4) AS years,
+        COUNT(distinct customer) as number_of_customer
+    FROM dqlab.dqlab_sales_store
+    WHERE
+	    order_status = 'Order Finished'
+    GROUP BY 1
+    ORDER BY 1;
+output:  
+![output5](https://github.com/ajiepamungkasep/Sales-Performance-Report-with-MySQL/blob/main/5.JPG)
